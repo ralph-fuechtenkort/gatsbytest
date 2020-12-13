@@ -1,0 +1,14 @@
+.talent-details {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.talent-details .post img{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.talent-details .post .author {
+    font-weight: 600;
+}

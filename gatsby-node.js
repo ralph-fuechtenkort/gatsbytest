@@ -97,6 +97,29 @@ exports.sourceNodes = async (args, configOptions) => {
 					contentDigest: "agilityPost"
 				}
 			});
+			await createNode({
+				id: createNodeId(`agilityTalent-0-0`),
+				parent: null,
+				children: [],
+				languageCode: "en-us",
+				itemid: 0,
+				contentID: 0,
+				customFields: { name: "", description: "", birthDate: "", uglyPicture	: {
+					url: "https://via.placeholder.com/350x150",
+					label: "Placeholder",
+					width: 350,
+					height: 150,
+					pixelWidth: 350,
+					pixelHeight: 150
+				}},
+				sitemapNode: {},
+				properties: { referenceName: "talentsx"},
+				internal: {
+					type: "agilityTalent",
+					content: "",
+					contentDigest: "agilityTalent"
+				}
+			});
 
 
 	}
@@ -124,6 +147,14 @@ exports.createResolvers = (args) => {
 	const resolvers = {
         //on the 'agilityPost' node type...
         agilityPost: {
+            //get the sitemap node that represents this item - useful for retrieving the URL for the item
+            sitemapNode: agility.getDynamicPageItemSitemapNode(),
+
+            //[Not Implemented]
+            //if we had a linked content field for 'author', this is how we'd get the author for this post in a single GraphQl query
+            //linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
+		},
+		agilityTalent: {
             //get the sitemap node that represents this item - useful for retrieving the URL for the item
             sitemapNode: agility.getDynamicPageItemSitemapNode(),
 
